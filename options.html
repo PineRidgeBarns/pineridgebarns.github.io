@@ -1,0 +1,39 @@
+---
+layout: default
+title: Options
+---
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Colors, Shingles, Siding &amp; Options</h1>
+            <p>As you can see below, we have endless styles, sizes and colors of Amish-built barns to choose
+            from. If you're interested in purchasing one of these, please contact us with the size and color scheme of a
+            barn you'd like to buy and we'll let you know what styles we have to offer in those sizes and colors.</p>
+        </div>
+    </div>
+{% for product in site.data.options-data %}
+    {% assign loopindex = forloop.index | modulo: 4 %}
+    {% if loopindex == 0 %}
+            <div class="col-md-3">
+                <div style="text-align: center;"><img src="img/products/{{ product.img }}" class="img-thumbnail"></div>
+                <div style="text-align: center; padding-bottom: 20px;">{{ product.title }}</div>
+            </div>
+        </div>
+    {% elsif loopindex == 1 %}
+        <div class="row">
+            <div class="col-md-3">
+                <div style="text-align: center;"><img src="img/products/{{ product.img }}" class="img-thumbnail"></div>
+                <div style="text-align: center; padding-bottom: 20px;">{{ product.title }}</div>
+            </div>
+    {% elsif loopindex == 2 or loopindex == 3 %}
+            <div class="col-md-3">
+                <div style="text-align: center;"><img src="img/products/{{ product.img }}" class="img-thumbnail"></div>
+                <div style="text-align: center; padding-bottom: 20px;">{{ product.title }}</div>
+            </div>
+    {% endif %}
+{% endfor %}
+{% if loopindex > 0 %}
+        </div>
+{% endif %}
+</div>
